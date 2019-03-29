@@ -1,0 +1,13 @@
+.profiel{
+    /* height: 600px; */
+    margin-bottom: 30px;
+}
+
+.foto{
+    width: 300px;
+    height: 300px;
+    /* background-image: url("../img/pf1.jpg"); */
+    border-radius: 50%;
+    /* margin-bottom: 30px; */
+    background-size: cover;
+}

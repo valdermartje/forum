@@ -1,0 +1,90 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    /* background-image: linear-gradient(to right, #9fc4ff, #05999b); */
+    background-color: #9fc4ff !important;
+    transition: 1.2s;
+}
+
+/* alle links */
+a {
+    text-transform: uppercase;
+    color: white !important;
+    text-decoration: underline; 
+    padding-right: 20px; 
+}
+
+/* inloggen */
+
+/* inloggen */
+.inloggen{
+    left: auto;
+    right: auto;
+    height: 30%;
+    width: 40%;
+    margin: 10% auto;
+    bottom: 10%;
+    position: relative;
+    color: #fff;
+    background-color: #646464;
+    border-radius: 10px;
+    padding-top: 20px;
+    transition: 1200ms;
+}
+
+.inloggen:hover{
+    background-color: rgba(104, 179, 196, 0.728)
+}
+
+.inloggenBox {
+    margin-top: 25%;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 7px double #05999b;
+    padding: 20px 0;
+}
+
+.submit {
+    border: none;
+    width: 150px;
+    margin-top: 1%;
+    background-color: aquamarine;
+    color: #646464;
+    margin-bottom: 2%;
+    transition: 1.2s;
+}
+
+input[type="submit"]:hover{
+    width: 30%;
+    border-radius: 40%;
+    background-color: #927ee2;
+    color: white;
+    margin-bottom: 2%;
+  }
+
+
+/* hier mijn Media query */
+
+/* voor 640px */
+@media only screen and (max-width: 640px) {
+    .afooter{
+        position: relative;
+        text-align: left;
+        margin-left: 60px;
+        width: 100%;
+    } 
+}
+
+/* voor 450px */
+@media only screen and (max-width: 450px) {
+    /* hier wil ik een media query maken die ervoor zorgt dat de gebruiker met zijn duim verder moet scrollen */
+    .topnav {
+        width: 450px;
+    }
+    .footer{
+        width: 450px;
+    }
+}

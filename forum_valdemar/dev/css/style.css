@@ -1,0 +1,45 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    /* background-image: linear-gradient(to right, #9fc4ff, #05999b); */
+    background-color: #9fc4ff !important;
+    transition: 1.2s;
+    /* overflow-y: auto;  */
+}
+
+/* alle links */
+a {
+    text-transform: uppercase;
+    color: white !important;
+    text-decoration: underline; 
+    padding-right: 20px; 
+}
+
+.margin-bottom {
+    margin-bottom: 200px;
+}
+
+/* hier mijn Media query */
+
+/* voor 640px */
+@media only screen and (max-width: 640px) {
+    .afooter{
+        position: relative;
+        text-align: left;
+        margin-left: 60px;
+        width: 100%;
+    } 
+}
+
+/* voor 450px */
+@media only screen and (max-width: 450px) {
+    /* hier wil ik een media query maken die ervoor zorgt dat de gebruiker met zijn duim verder moet scrollen */
+    .topnav {
+        width: 450px;
+    }
+    .footer{
+        width: 450px;
+    }
+}

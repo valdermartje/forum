@@ -1,0 +1,52 @@
+/* cards THREADS */
+.first-row {
+    margin-top: 40px !important;
+}
+
+.last-row {
+    margin-bottom: 30px;
+}
+
+.card{
+    background-color: #4771A5;
+    color: #fff;
+    text-align: center;
+    border-radius: 15px;
+    transition: 600ms; 
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.342);
+}
+
+.alert-error{
+    text-align: center;
+    color: #fff;
+    background-color: rgb(226, 113, 113);
+    margin-top: 10px;
+    width: 96%;
+    padding: 1px;
+    border-radius: 15px;
+}
+
+.alert-success{
+    text-align: center;
+    background-color: rgb(113, 226, 119);
+    margin-top: 10px;
+    width: 96%;
+    padding: 1px;
+    border-radius: 15px;
+}
+
+.card:hover{
+    box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.342); 
+}
+
+.card a{
+    transition: 1.2s;
+}
+
+.card a:hover{
+    color: rgb(0, 0, 0) !important;
+}
+
+.margin-bottom{
+    margin-bottom: 150px;
+}
