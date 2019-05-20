@@ -1,3 +1,11 @@
+.profielfoto {
+    width: 100px;
+    height: 100px;
+    /* float: left; */
+    border-radius: 50% !important;
+    /*clip: rect(0, 0, 25, 25);*//*zorgt voor een uitsnede in een vorm van een vierkant*/
+}
+
 .profiel{
     /* height: 600px; */
     margin-bottom: 30px;
@@ -10,4 +18,20 @@
     border-radius: 50%;
     /* margin-bottom: 30px; */
     background-size: cover;
+}
+
+.btn-warning {
+    background-color: transparent !important;
+    border: 1px solid #eea236 !important; 
+    float: right;
+}
+
+.btn-warning:hover {
+    background-color: #eea236 !important;
+    border: 1px solid #eea236 !important; 
+}
+
+/* bij de instellingen */
+.subject {
+    color: rgb(255, 255, 255) !important;
 }

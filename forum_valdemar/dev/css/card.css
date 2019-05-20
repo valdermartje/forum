@@ -7,46 +7,48 @@
     margin-bottom: 30px;
 }
 
-.card{
-    background-color: #4771A5;
-    color: #fff;
+.card {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     text-align: center;
-    border-radius: 15px;
+    box-sizing: border-box;
+    padding: 5px ;
     transition: 600ms; 
-    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.342);
-}
-
-.alert-error{
-    text-align: center;
-    color: #fff;
-    background-color: rgb(226, 113, 113);
-    margin-top: 10px;
-    width: 96%;
-    padding: 1px;
-    border-radius: 15px;
-}
-
-.alert-success{
-    text-align: center;
-    background-color: rgb(113, 226, 119);
-    margin-top: 10px;
-    width: 96%;
-    padding: 1px;
-    border-radius: 15px;
+    box-shadow: -1px 5px 20px 5px rgba(0, 0, 0, 0.342);
+    margin-bottom: 14px;
 }
 
 .card:hover{
-    box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.342); 
+    -webkit-box-shadow: -1px 11px 42px 10px rgba(230,224,117,0.73);
+    -moz-box-shadow: -1px 11px 42px 10px rgba(230,224,117,0.73);
+    box-shadow: -1px 11px 42px 10px rgba(0, 0, 0, 0.73);
 }
 
 .card a{
-    transition: 1.2s;
+    transition: 800ms;
+    color: black !important;
+    padding: 0;
 }
 
 .card a:hover{
     color: rgb(0, 0, 0) !important;
 }
 
-.margin-bottom{
-    margin-bottom: 150px;
+.card-text {
+    padding-top: 10px;
+    margin-bottom: 10px !important;
 }
+
+.margin-bottom-card{
+    margin-bottom: 100px;
+}
+
+.float-left {
+    float: left;
+}
+
+/* textarea {
+    margin: 0px;
+    max-width: 212px;
+    max-height: 102px;
+} */

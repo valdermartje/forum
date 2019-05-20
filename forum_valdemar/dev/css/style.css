@@ -4,9 +4,18 @@ html, body {
     font-family: 'Courier New', Courier, monospace;
     font-size: 16px;
     /* background-image: linear-gradient(to right, #9fc4ff, #05999b); */
-    background-color: #9fc4ff !important;
+    /* background-image: url("../img/bg.jpg"); */
+    /* color: azure; */
+    /* background-color: #9fc4ff !important; */
+}
+
+body {
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("../img/bg.jpg") !important;
+    background-size: cover !important;
+    background-repeat: no-repeat;
     transition: 1.2s;
-    /* overflow-y: auto;  */
+    color: aliceblue !important;
+    min-height: 100vh;
 }
 
 /* alle links */
@@ -18,7 +27,35 @@ a {
 }
 
 .margin-bottom {
-    margin-bottom: 200px;
+    margin-bottom: 350px !important;
+}
+
+.float-left {
+    float: left !important;
+}
+
+.float-right{
+    float: right !important;
+}
+
+.float-center {
+    text-align: center !important;
+}
+
+.margin-right {
+    margin-right: 5px;
+}
+
+.text-black {
+    color: black !important;
+}
+
+input[type="text"] {
+    color: black !important;
+}
+
+.mt-2 {
+    margin-top: 20px !important;
 }
 
 /* hier mijn Media query */
@@ -31,6 +68,10 @@ a {
         margin-left: 60px;
         width: 100%;
     } 
+
+    .margin-bottom {
+        margin-bottom: 200px !important;
+    }
 }
 
 /* voor 450px */

@@ -1,0 +1,47 @@
+.addReaction {
+    /* position: fixed; */
+    width: 80px;
+    height: 80px;
+    box-sizing: border-box;
+    /* vertical-align: baseline; */
+
+    /* shadow */
+    -webkit-box-shadow: -1px 11px 42px 10px rgba(0, 0, 0, 0.73);
+    -moz-box-shadow: -1px 11px 42px 10px rgba(0, 0, 0, 0.73);
+    box-shadow: -1px 11px 42px 10px rgba(0, 0, 0, 0.836); 
+    background-color: #337ab7; 
+    border-radius: 50%;
+    bottom: 50px !important;
+    right: 20px !important;
+    transition: 600ms;
+    /* z-index:99; */
+
+}   
+
+.addReaction:hover {
+    /* position: fixed; */
+    width: 80px;
+    height: 80px;
+    background-color: #d9534f; 
+    border-radius: 50%;
+    bottom: 50px !important;
+    right: 20px !important;
+
+    /* hier shadow */
+    -webkit-box-shadow: -1px 11px 42px 10px rgba(0, 0, 0, 0.73);
+    -moz-box-shadow: -1px 11px 42px 10px rgba(0, 0, 0, 0.73);
+    box-shadow: -1px 11px 42px 10px rgba(0, 0, 0, 0.73); 
+}   
+
+/* .plus {
+    text-align: center;
+} */
+
+.modal-title {
+    color: black;
+}
+
+.reactie {
+    width: 100%;
+    border: none !important;
+}

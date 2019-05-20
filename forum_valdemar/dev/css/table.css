@@ -1,0 +1,8 @@
+table {
+    color: black !important;
+    background: none !important;
+}
+table .tablehead {
+    color: white !important;
+    transform: uppercase;
+}

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style/body.css">
+    <link rel="stylesheet" href="style/stylesheet.css">
+    <link rel="stylesheet" href="style/menu.css">
+    <link rel="stylesheet" href="style/card.css">
+    <link rel="stylesheet" href="style/registreren.css">
+    <link rel="stylesheet" href="style/profile.css">
+    <link rel="stylesheet" href="style/login.css">
+    <link rel="stylesheet" href="style/footer.css">
+    <script src="js/functions.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <title>forum Valdemar</title>
+</head>
+
+<body>
+    <!-- BEGIN MENU -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- here a logo -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavbar">
+                    <!-- <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> -->
+                    <span class="fa fa-bars"></span>
+                </button>
+                <a href="#" class="navbar-brand">Forum Valdemar</a>
+
+                <!-- <h1 class="navbar-brand">Forum Valdemar</h1> -->
+            </div>
+            <!-- hier menu links -->
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="indexLogin.html">Home</a></li>
+                    <li><a href="threadsadmin.html">Threads</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact <span
+                                class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="mailto:forumValdemar@outlook.com?SUBJECT=Vraag forum">Email Me!</a></li>
+                            <li><a
+                                    href="https://www.google.com/maps/place/Alfa-college,+locatie+Boumaboulevard/@53.2063804,6.5906163,15z/data=!4m5!3m4!1s0x0:0x18518737e6041efe!8m2!3d53.2063804!4d6.5906163">Adress</a>
+                            </li>
+                            <li><a href="tel:0612345678">Call me!</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="profile.html" class="active">
+                            <!-- <img class="profielfoto" src="img/images.png" alt="photo"> -->
+                            Admin <span class="fas fa-user"></span></a>
+                    </li></a>
+                    <li><a href="index.html">Log Out <span class="fa fa-lock-open"></span><span
+                                class="fa fa-toggle"></span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- EINDE MENU -->
+
+    <!-- BEGIN CONTENT -->
+    <div class="container">
+        <br>
+        <hr width="100%" size="4px">
+        <br>
+        <!-- <div class="page-header">
+            <h1 class="">Profile</h1>
+        </div> -->
+
+        <div class="col-lg-12 text-center">
+            <div class="profiel">
+                <img class="foto" src="img/images.png" width="300px" height="300px" alt="photo">
+                <!-- <h1>Profile Name</h1> -->
+                <h1>Admin</h1>
+            </div>
+        </div>
+
+
+        <button class="btn btn-primary" style="display: inline" onclick="follow()" id="follow">Follow <span
+                class="fas fa-check"></span></button>
+        <button class="btn btn-danger" style="display: none" onclick="unfollow()" id="unfollow">Unfollow <span
+                class="fas fa-times"></span></button>
+
+        <button id="thumbsUp" class="btn btn-primary" style="display: inline" onclick="likeIt()">Like it <span
+                class="fa fa-thumbs-up" id="tup"></span></button>
+        <button id="thumbsDown" class="btn btn-danger" style="display: none" onclick="hateIt()">Hate it <span
+                class="fa fa-thumbs-down" id="tdown"></span></button>
+
+
+        <a href="threadsadmin.html" id="thread" class="aAddThread btn btn-warning float-right"
+            style="display: inline">Add thread</a>
+
+        <br>
+        <hr width="100%">
+        <br>
+
+        <div class="col-sm-9 text-left">
+            <h1>Beschrijving <span class="fa fa-address-book"></span></h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit fugit mollitia dolorem recusandae
+                tempora iure quo odio ullam, rem maxime sunt doloremque dignissimos consequatur. Vero reprehenderit
+                adipisci dolores consequatur facilis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint,
+                dicta odio, vero reiciendis dignissimos, unde maiores tempore nihil dolores excepturi vitae quas nemo
+                iure praesentium at laborum nesciunt voluptates quo.
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum quod, ullam perferendis laborum doloremque
+                culpa minus quisquam voluptatem, sit voluptatibus dolore animi nulla eligendi ratione blanditiis hic.
+                Quidem, rerum ab.</p>
+        </div>
+        <div class="col-sm-3 text-right">
+            <h1 class="text-left">Status <span class="fas fa-info-circle"></span></h1>
+            <p class="text-left">
+                8512 Followers <span class="fa fa-users"></span>
+                <br>3990 Berichten <span class="fa fa-envelope"></span>
+                <br>312 Helped <span class="fa fa-hands-helping"></span>
+                <!-- <br>Level 312 <span class="fa fa-star"></span>&nbsp -->
+            </p>
+        </div>
+
+        <div class="margin-bottom">
+
+        </div>
+
+
+    </div>
+    <!-- EINDE CONTENT -->
+
+    <!-- BEGIN FOOTER -->
+    <div class="footer">
+        <a class="afooter" href="cookie.html">Cookies-beleid</a>
+        <a class="afooter" href="privacy.html">Privacyverklaring</a>
+        <a class="afooter" href="forumregels.html">Forum regels</a>
+        <a class="afooter" href="disclaimer.html">Disclaimer</a>
+        <!-- <p class="pfooter">&copy;2019 Valdemar Vreeman<br>Contact informatie: -->
+    </div>
+    <!-- EINDE FOOTER -->
+
+</body>
+
+</html>

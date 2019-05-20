@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style/body.css">
+    <link rel="stylesheet" href="style/stylesheet.css">
+    <link rel="stylesheet" href="style/menu.css">
+    <link rel="stylesheet" href="style/card.css">
+    <link rel="stylesheet" href="style/registreren.css">
+    <link rel="stylesheet" href="style/threads.css">
+    <link rel="stylesheet" href="style/login.css">
+    <link rel="stylesheet" href="style/footer.css">
+    <link rel="stylesheet" href="style/reaction.css">
+    <script src="js/functions.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <title>forum Valdemar</title>
+</head>
+
+<body>
+    <!-- BEGIN MENU -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- here a logo -->
+            <div class="navbar-header">
+
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavbar">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <a href="#" class="navbar-brand">Forum Valdemar</a>
+
+                <!-- <h1 class="navbar-brand">Forum Valdemar</h1> -->
+            </div>
+            <!-- hier menu links -->
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="threads.html" class="active">Threads</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact <span
+                                class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="mailto:forumValdemar@outlook.com?SUBJECT=Vraag forum">Email Me!</a></li>
+                            <li><a
+                                    href="https://www.google.com/maps/place/Alfa-college,+locatie+Boumaboulevard/@53.2063804,6.5906163,15z/data=!4m5!3m4!1s0x0:0x18518737e6041efe!8m2!3d53.2063804!4d6.5906163">Adress</a>
+                            </li>
+                            <li><a href="tel:0612345678">Call me!</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="registreren.html">Registreren</a>
+                    </li></a>
+                    <li><a href="login.html">Log In <span class="fa fa-lock"></span><span
+                                class="fa fa-toggle"></span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- EINDE MENU -->
+
+    <!-- BEGIN CONTENT -->
+    <div class="container">
+        <div class="page-header">
+            <h1 class="text-left">Topics</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 text-left">
+                <div class="previous" id="previous" onclick="previous()" onmouseover="mouseover()"
+                    onmouseout="mouseout()"><span class="fas fa-angle-double-left"></span> Previous</div>
+            </div>
+            <br><br>
+            <!-- <button class="btn btn-danger" id="deleteTopicButton">Delete</button> -->
+            <!--  onclick="deleteTopic()" -->
+        </div>
+
+        <!-- <div class="next text-right"> Next &gt</div> -->
+
+        <!-- <div class="button"> -->
+        <div class="text-right">
+            <button class="btn btn-danger" id="deleteTopic" onclick="deleteTopic()" style="display: inline">Delete
+                topic</button>
+            <button class="btn btn-danger" id="deleteTopic_hidden" onclick="deleteTopic_hidden()"
+                style="display: none">Delete topic</button>
+        </div>
+        <!-- </div> -->
+
+        <div id="thread" class="row first-row last-row" onmouseover="verwijzing()">
+            <div class="col-sm-12" id="topic">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">.....(Ik weet niks te verzinnen)</h3>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <img class="" src="img/bg2.jpg" width="250px" height="auto" alt="failed loading...">
+                            </div>
+                            <div class="col-sm-8">
+                                <p class="card-text text-left">
+                                    Some quick example text to build on the card title and make up the bulk
+                                    of the card's content. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Tenetur fugiat unde labore pariatur ut ea, qui dolorum veniam voluptatum sint
+                                    hic
+                                    reiciendis voluptate facere impedit, accusantium odit. Eveniet, cumque non!
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum eum necessitatibus
+                                    ea!
+                                    Blanditiis neque deserunt officiis quis debitis consequatur dolores, odit,
+                                    dolorum
+                                    perferendis soluta odio. Non expedita nulla ipsa dicta!
+                                </p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="deleteTopic" style="display: none; color: red;">Delete <span
+                                    class="fas fa-trash-alt"></span></p>
+                            <p class="reaction text-right" id="reaction">
+                                1 reactions <span class="fas fa-comments"></span><br>
+                                <!-- Like it <button class="btn btn-link fas fa-thumbs-up"></button> -->
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12" id="topic1">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">.....(Ik weet niks te verzinnen)</h3>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <img class="" src="img/bg2.jpg" width="250px" height="auto" alt="failed loading...">
+                            </div>
+                            <div class="col-sm-8">
+                                <p class="card-text text-left">
+                                    Some quick example text to build on the card title and make up the bulk
+                                    of the card's content. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Tenetur fugiat unde labore pariatur ut ea, qui dolorum veniam voluptatum sint
+                                    hic
+                                    reiciendis voluptate facere impedit, accusantium odit. Eveniet, cumque non!
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum eum necessitatibus
+                                    ea!
+                                    Blanditiis neque deserunt officiis quis debitis consequatur dolores, odit,
+                                    dolorum
+                                    perferendis soluta odio. Non expedita nulla ipsa dicta!
+                                </p>
+                            </div>
+                        </div>
+                        <div class="rechts text-right">
+                            <p class="deleteTopic" style="display: none; color: red;">Delete <span
+                                    class="fas fa-trash-alt"></span></p>
+                            <p class="reaction text-right" id="reaction">
+                                1 reactions <span class="fas fa-comments"></span><br>
+                                <!-- Like it <button class="btn btn-link fas fa-thumbs-up"></button> -->
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12" id="topic2">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">.....(Ik weet niks te verzinnen)</h3>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <img class="" src="img/bg2.jpg" width="250px" height="auto" alt="failed loading...">
+                            </div>
+                            <div class="col-sm-8">
+                                <p class="card-text text-left">
+                                    Some quick example text to build on the card title and make up the bulk
+                                    of the card's content. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Tenetur fugiat unde labore pariatur ut ea, qui dolorum veniam voluptatum sint
+                                    hic
+                                    reiciendis voluptate facere impedit, accusantium odit. Eveniet, cumque non!
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum eum necessitatibus
+                                    ea!
+                                    Blanditiis neque deserunt officiis quis debitis consequatur dolores, odit,
+                                    dolorum
+                                    perferendis soluta odio. Non expedita nulla ipsa dicta!
+                                </p>
+                            </div>
+                        </div>
+                        <div class="rechts text-right">
+                            <p class="deleteTopic" style="display: none; color: red;">Delete <span
+                                    class="fas fa-trash-alt"></span></p>
+                            <p class="reaction text-right" id="reaction">
+                                1 reactions <span class="fas fa-comments"></span><br>
+                                <!-- Like it <button class="btn btn-link fas fa-thumbs-up"></button> -->
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12" id="topic3">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">.....(Ik weet niks te verzinnen)</h3>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <img class="" src="img/bg2.jpg" width="250px" height="auto" alt="failed loading...">
+                            </div>
+                            <div class="col-sm-8">
+                                <p class="card-text text-left">
+                                    Some quick example text to build on the card title and make up the bulk
+                                    of the card's content. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Tenetur fugiat unde labore pariatur ut ea, qui dolorum veniam voluptatum sint
+                                    hic
+                                    reiciendis voluptate facere impedit, accusantium odit. Eveniet, cumque non!
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum eum necessitatibus
+                                    ea!
+                                    Blanditiis neque deserunt officiis quis debitis consequatur dolores, odit,
+                                    dolorum
+                                    perferendis soluta odio. Non expedita nulla ipsa dicta!
+                                </p>
+                            </div>
+                        </div>
+                        <div class="rechts text-right">
+                            <p class="deleteTopic" style="display: none; color: red;">Delete <span
+                                    class="fas fa-trash-alt"></span></p>
+                            <p class="reaction text-right" id="reaction">
+                                1 reactions <span class="fas fa-comments"></span><br>
+                                <!-- Like it <button class="btn btn-link fas fa-thumbs-up"></button> -->
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 margin-bottom" id="addTopic">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">
+                            <div class="form-group">
+                                <label>Title</label>
+                                <input class="form-control" placeholder="title"></input>
+                            </div>
+                        </h3>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <form>
+                                    <div class="form-group">
+                                        <label class="labelTopic">Photo</label>
+                                        <input class="photoTopic" type="file" class="form-control-file">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-sm-8 text-left">
+                                <div class="form-group">
+                                    <label>Content</label>
+                                    <input class="form-control" placeholder="content"></input>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center margin-top">
+                            <button class="btn btn-primary">Add <span class="fa fa-plus"></span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="margin-bottom">
+
+            </div>
+
+        </div>
+    </div>
+    <!-- EINDE CONTENT -->
+
+    <!-- BEGIN FOOTER -->
+    <div class="footer">
+        <a class="afooter" href="cookie.html">Cookies-beleid</a>
+        <a class="afooter" href="privacy.html">Privacyverklaring</a>
+        <a class="afooter" href="forumregels.html">Forum regels</a>
+        <a class="afooter" href="disclaimer.html">Disclaimer</a>
+        <!-- <p class="pfooter">&copy;2019 Valdemar Vreeman<br>Contact informatie: -->
+    </div>
+    <!-- EINDE FOOTER -->
+
+</body>
+
+</html>

@@ -28,20 +28,24 @@ session_start();
         <?php unset($_SESSION['success']) ?>
     <?php endif; ?>
 <!-- EINDE SUCCES -->
-           
-<h1 class="whiteh1">Registreren</h1>
-    <form class="col s12" method="post" action="app/register/registration.php" name="registreren">
-        <label class="margin-top">Gebruiksnaam:</label>
-        <input type="text" name="username" placeholder="Gebruikersnaam" required><br>
-        <label>Email:</label>
-        <input type="email" name="email" placeholder="someone@gmail.com" required><br>
-        <label>Wachtwoord:</label>
-        <input type="password" name="password" placeholder="Wachtwoord" required><br>
-        <label>Foto:</label>
-        <input class="upload" type="file" name="file" id="file" required>
-        <input type="submit" class="button btn btn-primary" name="loginSubmit" value="Registreren">
-    </form>
-</label>
+        
+        <h1 class="whiteh1">Registreren</h1>
+        <form class="col s12" method="post" action="app/register/registration.php" name="registreren">
+            <label class="margin-top">Gebruiksnaam:</label>
+            <input class="text" type="text" name="username" placeholder="Gebruikersnaam" required><br>
+            <label>Email:</label>
+            <input class="text" type="email" name="email" placeholder="someone@gmail.com" required><br>
+            <label>Wachtwoord</label>
+            <input class="text" type="password" name="password" placeholder="Wachtwoord" required><br>
+            <label>Biografie:</label>
+            <input class="uploadText" type="text" name="bio" id="file" required>
+            <input type="submit" class="button btn btn-primary" name="loginSubmit" value="Registreren">
+        </form>
+    </div>
+
+    <div class="margin-bottom">
+
+    </div>
 
 <?php
 session_destroy();
