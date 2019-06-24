@@ -1,3 +1,4 @@
+<!-- HIER LAAT IK DE GEBRUIKERS TONEN -->
 <div class="container">
   <div class="row">
           <br>
@@ -14,6 +15,7 @@
     
     <?php
         include_once('connect.php');
+        // include_once('../helpers/db.php');
 
         $kolommen = array_keys($gebruikers[0]);
 
@@ -32,7 +34,7 @@
         $stmt->execute();
         $data = $stmt->fetchAll();
 
-        foreach ($data as $k => $v): ;
+        foreach ($data as $k => $v):
     ?>
   
   <tbody>

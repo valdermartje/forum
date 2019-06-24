@@ -1,15 +1,31 @@
 <?php
 session_start();
-include('connect.php');
 include_once('../helpers/db.php');
-   
-if (isset($_POST["delete"])) {
-    $id = $_GET['id'];
-    $sql = "DELETE FROM users WHERE id= $id";
-    $conn->exec("$sql");
-    header("location: ../../gebruikers.php");
+
+if($_SERVER['REQUEST_METHOD'] != 'POST') {
+    header('Location: ../../threads.php');
+    exit(0);
 }
 
+// HIER DELETE JE EEN USER MET DE ID VAN $_GET['id']
+if (isset($_POST["delete"])) {
+    $id = $_GET['id'];
+
+    if(dbConnect()){
+        dbQuery(
+            "DELETE FROM users 
+            WHERE id= :id", 
+            [
+                ':id' => $id
+            ]);
+
+        header("location: ../../gebruikers.php");
+    
+    }
+
+}
+
+// HIER MAAK JE ER EEN
 if (isset($_POST['add'])) {
     if($_SERVER['REQUEST_METHOD'] != 'POST'){
         header('Location: ../../profile.php');
@@ -24,13 +40,13 @@ if (isset($_POST['add'])) {
 
     if(dbConnect()) {
         dbQuery(
-            "SELECT username, profielfoto, bio, email FROM users 
+            "SELECT username, profielfoto, bio, email FROM users
                 WHERE users = :gebruikersnaam
-                OR email = :emailadres", 
+                OR email = :emailadres",
             [':gebruikersnaam' => $username,
              ':emailadres' => $email]
         );
-           
+
         if(dbCount() > 0){ 
             $_SESSION['error'] = 'Gebruiker en/of email bestaat al!';
             header('Location: ../../profile.php');
@@ -55,16 +71,28 @@ if (isset($_POST['add'])) {
     }
 }
     
+// UPDATE EEN USER
 if (isset($_POST['update'])) {
     $id = $_SESSION["id"];
     $name = $_POST['gebruikersnaam'];
     $email = $_POST['email'];
     $bio = $_POST['bio'];
 
-    $stmt = $conn->prepare("UPDATE users SET username='$name', email='$email', bio='$bio' WHERE id=$id");
+    if(dbConnect()){
+        dbQuery(
+            "UPDATE users 
+             SET username = :name, 
+             email = :email, 
+             bio = :bio 
+             WHERE id= :id", [
+                 ':name' => $name,
+                 ':email' => $email,
+                 ':bio' => $bio,
+                 ':id' => $id
+        ]);
 
-    // execute the query
-    $stmt->execute();
+        header("location: ../../gebruikers.php");
+    
+    }
 
-    header("location: ../../gebruikers.php");
 }

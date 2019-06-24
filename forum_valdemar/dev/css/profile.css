@@ -23,6 +23,7 @@
 .btn-warning {
     background-color: transparent !important;
     border: 1px solid #eea236 !important; 
+    margin-bottom: 5px !important;
     float: right;
 }
 

@@ -13,6 +13,7 @@ include_once('connect.php');
 
 
 ?>
+<!-- DEZE FORM DIE WORDT GESTUURD NAAR DE CRUD EN DAAR WORDT DIE GEUPDATE -->
   <form action="app/gebruikers/crud.php" method="post">
       <div class="container">
             <div class="row">

@@ -1,104 +1,108 @@
 <?php
     include_once('app/helpers/db.php');
 
-    if(dbConnect()){
-        
+    if(!isset($_GET['id'])){
+        header('Location: index.php');
+        exit(0);
+    }
+
+    if(dbConnect()){  
+        $thread_id = $_GET['id'];
+        $_SESSION['thread_id'] = $thread_id;
+
         dbQuery("SELECT topic.*, 
                 users.username
                 FROM topic 
-                INNER JOIN users ON topic.user_id = users.id");
-
-        //WHERE topics .threads_id= :id, [':id' => $id]
-
-        // $topics = dbGetAll();
+                INNER JOIN users ON topic.user_id = users.id
+                WHERE topic.thread_id = :id", [
+                    ':id' => $thread_id
+                ]);
 
         $topics = dbGetAll();                                                                          //alle informatie die van de database komenn worden hier neergezet
-
     }
 ?>
 
 <!-- BEGIN CONTENT -->
 <div class="container">
     <div class="row">
-        <?php if(isset($_SESSION['success'])): ?>
-            <div class="container">
-                <div class="row"> 
-                    <div class="col-md-12 offset-md-12">
-                        <div class="alert alert-success text-left pl-5" role="alert">
-                            <?= $_SESSION['success'] ?>
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <?php endif; ?>
 
-        <div class="page-header">
+        <div class="page-header p-5">
             <h1 class="text-left">Topics</h1>
         </div>
     </div>
 
     <div class="row">
         <div class="col-xs-12 text-left">
-            <div class="previous" id="previous" onclick="previous()" onmouseover="mouseover()"
-                onmouseout="mouseout()"><span class="fas fa-angle-double-left"></span> Previous</div>
-        </div>
-        <br><br>
-
-        <div class="text-right">
-            <?php if(isAdmin()): ?>
-                <button class="btn btn-danger" id="deleteTopic" onclick="deleteTopic()" style="display: inline">Delete
-                    topic</button>
-                <button class="btn btn-danger" id="deleteTopic_hidden" onclick="deleteTopic_hidden()"
-                    style="display: none">Delete topic</button>
-            <?php endif; ?>
+            <a class="doorverwijzen" href="threads.php"><span class="fas fa-angle-double-left"></span> Previous</a>
         </div>
     </div>
 
         
     <div class="row">
+
         <!-- BEGIN TOPICS -->
             <div class="col-sm-12 mt-2" id="topic3">
+            <?php if(count($topics) > 0): ?><!-- ALS DE COUNT VAN TOPICS HOGER IS DAN 0 DAN TOONT HIJ DE TOPICS -->
                 <?php foreach($topics as $topic): ?>
-                    <a href="reactions.php?id=<?= $topic['id'] ?>">
-                        <div class="card">
-                            <div class="card-body">
-                                <h3><?= $topic['titel']?></h3>
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <img class="" src="img/bg2.jpg" width="250px" height="auto" alt="failed loading...">
+                    <form action="app/verwijderen_uploads/crud_verwijderen_uploads.php?id=<?= $topic['id'] ?>" method="post">
+                        <a class="topics" href="reactions.php?id=<?= $topic['id'] ?>">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h3><?= $topic['titel']?></h3>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <img class="foto_thread" src="<?= getTopicImage($topic['foto_topic']) ?>" alt="only png allowed...">
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <p class="card-text text-left">
+                                                <?= $topic['content'] ?>
+                                            </p>
+                                        </div>
                                     </div>
-                                    <div class="col-sm-8">
-                                        <p class="card-text text-left">
-                                            <?= $topic['content'] ?>
+                                    <div class="rechts text-right">
+                                        <p class="actor text-right" id="actor">
+                                        <?php
+                                            $_SESSION['username'] = $topic['username'];
+                                        ?>
+                                            Acteur: <?= $topic['username'] ?> <span class="fas fa-user"></span><br>
                                         </p>
+                                        <p class="date text-right" id="date">
+                                            Datum: <?= $topic['datum'] ?> <span class="far fa-calendar-alt"></span><br>
+                                        </p>
+
+                                        <?php if(isLoggedIn()): ?>
+                                                <?php if(isAdmin() || $topic['user_id'] === $_SESSION['user_id']): ?>
+                                                    <div class="text-right">
+                                                        <input type="submit" name="verwijderen_topic" class="btn btn-danger" value="Verwijderen topic">
+                                                    </div>
+                                                <?php endif; ?>
+                                        <?php endif; ?>
+
                                     </div>
-                                </div>
-                                <div class="rechts text-right">
-                                    <p class="deleteTopic" style="display: none; color: red;">Delete <span
-                                            class="fas fa-trash-alt"></span></p>
-                                    <p class="actor text-right" id="actor">
-                                        Acteur: <?= $topic['username'] ?> <span class="fas fa-user"></span><br>
-                                    </p>
-                                    <p class="date text-right" id="date">
-                                        Datum: <?= $topic['datum'] ?> <span class="far fa-calendar-alt"></h3><br>
-                                    </p>
-                                    <!-- <a href="reactions.php" class="reaction text-right" id="reaction">
-                                        1 reactions <span class="fas fa-comments"></span><br>
-                                    </a> -->
                                 </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    </form>
                 <?php endforeach; ?>
+            <?php else: ?><!-- ANDERS WORDT DAT HIERONDER GETOONT -->
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <p class="card-text">
+                                    Er is geen topic aangemaakt bij deze thread, log in om een topic aan te maken.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php endif; ?>
             </div>
         <!-- EINDE TOPICS -->
 
-            <div class="col-sm-12 margin-bottom"> <!-- DIT WERKT -->
+            <div class="col-sm-12 margin-bottom">
                 <?php if(isLoggedIn()): ?>
-                    <form action="app/uploads/upload_topics.php" method="post">
+                    <form action="app/uploads/upload_topics.php?id=<?= $thread_id ?>" enctype="multipart/form-data" method="post"><!-- DEZE FORM WORDT NAAR DE MAP UPLOADS GESTUURD MET ALLE DATA -->
                         <div class="card">
                             <div class="card-body">
                                 <h3 class="card-title">
@@ -112,7 +116,7 @@
                                         <form>
                                             <div class="form-group">
                                                 <label class="text-black">Photo</label>
-                                                <input class="photoTopic" name="photo" type="file" class="form-control-file">
+                                                <input class="photoTopicButton" name="photo" type="file" class="form-control-file">
                                             </div>
                                         </form>
                                     </div>
@@ -134,5 +138,6 @@
         </div>
 
     </div>
+
 </div>
 <!-- EINDE CONTENT -->

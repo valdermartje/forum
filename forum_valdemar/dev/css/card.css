@@ -35,7 +35,7 @@
 }
 
 .card-text {
-    padding-top: 10px;
+    padding: 20px 15px;
     margin-bottom: 10px !important;
 }
 
@@ -47,8 +47,11 @@
     float: left;
 }
 
-/* textarea {
-    margin: 0px;
-    max-width: 212px;
-    max-height: 102px;
-} */
+/* LINKJES IN THREADS EN TOPICS */
+.threads{
+    text-transform: initial !important;
+}
+
+.topics {
+    text-transform: initial !important;
+}

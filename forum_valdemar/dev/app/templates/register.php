@@ -37,8 +37,12 @@ session_start();
             <input class="text" type="email" name="email" placeholder="someone@gmail.com" required><br>
             <label>Wachtwoord</label>
             <input class="text" type="password" name="password" placeholder="Wachtwoord" required><br>
+            <label>Wachtwoord herhalen</label>
+            <input class="text" type="password" name="password_repeat" placeholder="Wachtwoord herhalen" required><br>
             <label>Biografie:</label>
-            <input class="uploadText" type="text" name="bio" id="file" required>
+            <input class="uploadText" type="text" name="bio" placeholder="Geef hier uw bio aan!" required>
+            12 + 6 = <input type="text" name="getal" class="getal">
+<!--            --><?//= rand(1, 10) ?><!-- + --><?//= rand(1, 10) ?>
             <input type="submit" class="button btn btn-primary" name="loginSubmit" value="Registreren">
         </form>
     </div>

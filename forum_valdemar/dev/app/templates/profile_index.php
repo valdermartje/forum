@@ -1,5 +1,5 @@
 <?php
-if(!isset($_SESSION['username'])) {
+if(!isset($_SESSION['username']) && isset($_SESSION['user_id'])) {
     // $_SESSION['error'] = 'U moet eerst inloggen om toegang te krijgen!';
     $_SESSION['error_profile'] = "U was niet bevoegd om deze pagina te weergeven";
     header('Location: index.php');
@@ -58,23 +58,9 @@ if(!isset($_SESSION['username'])) {
                 <img class="foto" src="img/pf2.jpg" width="300px" height="300px" alt="photo">
             <?php endif; ?>
                 
-                <h1><?=  $_SESSION['username'] ?></h1>
+                <h1><?= $_SESSION['username'] ?></h1>
             </div>
         </div>
-
-        <!-- volgen -->
-        <!-- <button class="btn btn-primary" style="display: inline" onclick="follow()" id="follow">Follow <span
-                class="fas fa-check"></span></button>
-        <button class="btn btn-danger" style="display: none" onclick="unfollow()" id="unfollow">Unfollow <span
-                class="fas fa-times"></span></button> -->
-        <!-- einde volgen -->
-
-        <!-- begin like -->
-        <!-- <button id="thumbsUp" class="btn btn-primary" style="display: inline" onclick="likeIt()">Like it <span
-                class="fa fa-thumbs-up" id="tup"></span></button>
-        <button id="thumbsDown" class="btn btn-danger" style="display: none" onclick="hateIt()">Hate it <span
-                class="fa fa-thumbs-down" id="tdown"></span></button> -->
-        <!-- einde like -->
         
         <!-- alleen voor de admin -->
         <?php if(isAdmin()): ?>
@@ -85,34 +71,39 @@ if(!isset($_SESSION['username'])) {
         <!-- BEGIN SETTINGS -->
         <?php if(isLoggedIn()): ?>
             <a href="instellingen.php" id="settings" class="settings btn btn-warning float-right margin-right" style="display: inline"><span class="fas fa-cog"></span></a>
-            <?php endif; ?>
+        <?php endif; ?>
         <!-- EINDE SETTINGS -->
         
         <!-- BEGIN Gebruikers -->
         <?php if(isAdmin()): ?>
             <a href="gebruikers.php" id="gebruikers" class="settings btn btn-warning float-right margin-right" style="display: inline">Gebruikers <span class="fas fa-users"></span></a>
-            <?php endif; ?>
+        <?php endif; ?>
+
+        <?php if(isLoggedIn()): ?>
+            <a href="overzicht_aangemaakt.php" id="overzicht" class="settings btn btn-warning float-right margin-right" style="display: inline">Overzicht <span class="fas fa-data"></span></a>
+        <?php endif; ?>
         <!-- EINDE SETTINGS -->
         
         <br>
         <hr width="100%" size="4px">
         <br>
 
-        <!-- GEGEVENS -->
-        <div class="col-sm-12 text-left">
-            <h1>Beschrijving <span class="fa fa-address-book"></span></h1>
-            <?= $_SESSION['bio'] ?>
-        </div>
-
-        
+        <!-- BEGIN GEGEVENS VAN DE USER, DIR HAD IK IN HET BEGIN GEMAAKT. IK KON MAKELIJK MET EEN FOREACH ALLE DATA ERIN VULLEN-->
         <div class="col-sm-12 text-left margin-bottom">
-            <hr>  
+            <!-- <hr>   -->
             <h1>Persoonlijke gegevens <span class="fas fa-lock"></span></h1>   
             Email: <?= $_SESSION['email'] ?> <br>
             Naam: <?= $_SESSION['username'] ?><br>
-            Bio: <?= $_SESSION['bio'] ?> <br>
+            Bio: <?= $_SESSION['bio'] ?>
+            <?php
+
+            if(is_null($_SESSION['bio']) || empty($_SESSION['bio'])) {
+                echo "U heeft geen bio";
+            }
+
+            ?>
         </div>
-        <!-- GEGEVENS -->
+        <!-- EINDE GEGEVENS -->
     </div>
     <hr>
 <!-- EINDE PROFILE GEGEVENS -->

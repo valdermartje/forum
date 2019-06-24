@@ -17,7 +17,7 @@ session_start();
     <!-- EINDE ERROR -->
     
         <h1 class="whiteh1">Log In</h1>
-        <form method="post" action="app/inloggen/inlogsysteem.php" name="login">
+        <form method="post" action="app/inloggen/inlogsysteem.php" name="login"><!-- Deze form wordt gestuurd met inhoud naar de inlogsysteem.php in het map inloggen -->
             <label>Email:</label>
             <input class="text" type="email" name="email" placeholder="someone@gmail.com" required><br>
             <label>Wachtwoord</label>

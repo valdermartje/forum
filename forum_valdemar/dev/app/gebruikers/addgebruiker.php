@@ -1,6 +1,4 @@
-<?php 
-include_once('connect.php');
-?>
+<!-- BEGIN LAYOUT VAN ADD GEBRUIKER -->
 <body>
     <form action="app/gebruikers/crud.php" method="post">
         <div class="container">
@@ -27,3 +25,4 @@ include_once('connect.php');
     </form>
 </body>
 </html>
+<!-- EINDE LAYOUT VAN ADD GEBRUIKER -->

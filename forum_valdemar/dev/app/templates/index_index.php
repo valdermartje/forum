@@ -29,19 +29,15 @@ if(isset($_SESSION['error_profile'])): ?>
 
 <div class="container">
     <div class="row">
-        <div class="page-header">
+        <div class="page-header p-5">
             <h1>Home</h1>
         </div>
-        <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam, in quod doloribus voluptate deserunt soluta quos dolorem illo iure rem? Ipsum, id quisquam. Recusandae dolore ipsam, pariatur quod et provident?
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet quas nisi eligendi magnam, cum quis ratione eos iure autem. Praesentium quas labore, quaerat autem accusantium illo facilis cumque sunt blanditiis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam eos minima explicabo earum quidem, cum velit iste excepturi facilis sapiente, similique reiciendis dolores, modi dolorum fugit soluta harum magni nesciunt!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste minus eius maxime rem illum nisi sed aliquam veritatis nesciunt, sequi facilis enim, consequuntur ipsa. Obcaecati voluptate cupiditate eaque magnam eveniet.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error maiores ea unde eveniet sint molestiae, adipisci nihil nisi fugiat quaerat corrupti at? Cumque debitis corrupti eos, facilis alias beatae sapiente.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique labore repudiandae eveniet repellendus commodi, aliquam totam enim, iste dolorum velit earum sint. Dolor repudiandae inventore suscipit nulla, doloremque in praesentium.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, rerum dolorum consequuntur cupiditate culpa reprehenderit delectus nihil illo facere accusantium neque, impedit beatae autem consectetur. Iusto, omnis aliquid. Iste, consequuntur!
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto et nulla aspernatur dicta maiores, quam necessitatibus quos iste commodi dolorum! Illum odio laborum eveniet dolorum consectetur unde ducimus, excepturi reiciendis.
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati eum esse vel tempora libero dolore qui illo quasi vero illum, corrupti, odio voluptatibus. Explicabo officia natus, voluptatum harum possimus vel.
+        <p class="p-5">
+        <b>Welkom!</b> Met trots presenteren wij ons gloednieuwe forum. Browse door onze threads en topics, stel uw vragen of beantwoordt juist de vragen van anderen.<br> Dit is de plaats waar u uw vragen kunt stellen.<br><br>
+
+        Als u naar de menu bovenaan deze pagina kijkt, dan ziet u verschillende kopjes. U kunt zich registreren en inloggen om deel uit te maken op deze forum. U kunt ook naar de threads en topics gaan om naar hun vragen te kijken en de reacties eronder te lezen.<br><br>
+
+        Mocht u nog geen lid zijn dan kunt u onder <?php if(isNotLoggedIn()): ?><a href="registreren.php" class="linkje">registreren </a><?php endif; ?> <?php if(isLoggedIn()): ?>registreren <?php endif; ?>kiezen voor om een account aan te maken.<br><br> Geregistreerde forum leden zien rechts bovenin hun forumnaam en als ze daarop klikken zien ze hun hele overzicht.<br> Deze leidt naar de persoonlijke profielpagina.<br>Er zit ook een knop van instellingen en daar kunt u uw profiel instellen, een (andere) profielfoto uploaden of uw wachtwoord wijzigen.<br>
         </p>
     </div>
 </div>
@@ -49,20 +45,21 @@ if(isset($_SESSION['error_profile'])): ?>
 
 <div class="container">
     <div class="row">
-        <div class="page-header">
+        <div class="page-header p-5">
             <h1>Threads</h1>
         </div>
         
         <!-- BEGIN THREADS -->
         <div class="col-sm-12 mt-2">
             <?php foreach($threads as $thread): ?><!-- nu kan ik alle informatie gebruiken in html-->
-                <a href="topic.php?id=<?= $thread['id'] ?>">
+            <form action="app/verwijderen_uploads/crud_verwijderen_uploads.php?id=<?= $thread['id'] ?>" method="post">
+                <a class="threads" href="topic.php?id=<?= $thread['id'] ?>">
                     <div class="card">
                         <div class="card-body">
                             <h3 class="card-title"><?= $thread['title']?></h3>
                             <div class="row">
                                 <div class="col-sm-4">
-                                    <img class="" src="img/bg2.jpg" width="250px" height="auto" alt="failed loading...">
+                                    <img class="foto_thread" src="<?= getThreadImage($thread['foto_thread']) ?>" width="250px" height="auto" alt="failed loading...">
                                 </div>
                                 <div class="col-sm-8">
                                     <p class="card-text text-left">
@@ -71,21 +68,22 @@ if(isset($_SESSION['error_profile'])): ?>
                                 </div>
                             </div>
                             <div class="rechts text-right">
-                                <p class="deleteTopic" style="display: none; color: red;">Delete <span
-                                        class="fas fa-trash-alt"></span></p>
                                 <p class="actor text-right" id="actor">
                                     Acteur: <?= $thread['username'] ?> <span class="fas fa-user"></span><br>
                                 </p>
                                 <p class="date text-right" id="date">
                                     Datum: <?= $thread['datum'] ?> <span class="far fa-calendar-alt"></><br>
                                 </p>
-                                <!-- <a href="reactions.php" class="reaction text-right" id="reaction">
-                                    1 reactions <span class="fas fa-comments"></span><br>
-                                </a> -->
+                                <div class="">
+                                    <?php if(isAdmin()): ?>
+                                        <input type="submit" name="verwijderen_thread" class="btn btn-danger" value="Verwijderen Thread">
+                                    <?php endif; ?>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </a>
+            </form>
             <?php endforeach; ?>
         </div>
         <!-- EINDE THREADS -->

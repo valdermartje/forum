@@ -53,6 +53,11 @@ a {
     margin-top: 20px;
 }
 
+.getal {
+    width: 40px !important;
+    display: inline;
+}
+
 .button {
     color: #ffffff !important;
 }
